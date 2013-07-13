@@ -24,7 +24,7 @@ public class MainClass {
 				writeGPX(elmList, args[1]);
 			}
 		} else {
-			System.out.println("Usage: javac SGPXF.java ./input.gpx ./output.gpx");
+			System.out.println("Usage: SGPXF.jar ./input.gpx ./output.gpx");
 		}
 	}
 	
