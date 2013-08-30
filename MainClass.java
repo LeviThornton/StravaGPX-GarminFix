@@ -13,7 +13,7 @@ import java.util.Vector;
 
 public class MainClass {
 
-  /**
+	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
@@ -24,7 +24,7 @@ public class MainClass {
 				writeGPX(elmList, args[1]);
 			}
 		} else {
-			System.out.println("Usage: SGPXF.jar ./input.gpx ./output.gpx");
+			System.out.println("Usage: javac SGPXF.java ./input.gpx ./output.gpx");
 		}
 	}
 	
@@ -47,9 +47,10 @@ public class MainClass {
 			doc.getDocumentElement().normalize();
 		 
 			System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
+			int yearone = 1900;
 			
 			NodeList nList = doc.getElementsByTagName("trkpt");
-			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:'000Z'");
+			SimpleDateFormat format = new SimpleDateFormat("MM-dd'T'HH:mm:'00Z'");
 			
 			Vector<Vector> elmListVec = new Vector<Vector>(1,1);
 			
@@ -64,11 +65,12 @@ public class MainClass {
 					Element eElement = (Element) nNode;
 					
 					Date now = new Date();	
+					yearone=yearone+1;
 					
 					String lat = eElement.getAttribute("lat");
 					String lon = eElement.getAttribute("lon");
 					String ele = eElement.getElementsByTagName("ele").item(0).getTextContent();
-					String tim = format.format(now);
+					String tim = (yearone)+"-"+format.format(now);
 					
 					System.out.println("Latitude : " + lat);
 					System.out.println("Longitude : " + lon);
@@ -121,6 +123,9 @@ public class MainClass {
 			 */
 			rtElm(fw,"<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
 			rtElm(fw,"<gpx creator=\"SGPXF\" version=\"1.1\" xmlns=\"http://www.topografix.com/GPX/1/1\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd\">");
+			rtElm(fw,"<metadata>");
+			//rtElm(fw,"<time>"++"</time>");
+			rtElm(fw,"/<metadata>");
 			/*
 			 * Start the main node tags 
 			 */
