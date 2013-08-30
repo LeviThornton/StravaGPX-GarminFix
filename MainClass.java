@@ -125,7 +125,7 @@ public class MainClass {
 			rtElm(fw,"<gpx creator=\"SGPXF\" version=\"1.1\" xmlns=\"http://www.topografix.com/GPX/1/1\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd\">");
 			rtElm(fw,"<metadata>");
 			//rtElm(fw,"<time>"++"</time>");
-			rtElm(fw,"/<metadata>");
+			rtElm(fw,"</metadata>");
 			/*
 			 * Start the main node tags 
 			 */
