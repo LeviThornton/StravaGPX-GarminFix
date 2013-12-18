@@ -1,7 +1,7 @@
 Intro
 
 This java project was created because I did not want to make a web version 
-and I wanted to export Strava riders into Garmin connect. While being a premium
+and I wanted to export Strava rides into Garmin connect. While being a premium
 member you can download GPX files from Strava, they will not import into Garmin
 as they are missing key data elements like time stamps, etc. So this class will fix that.
 
